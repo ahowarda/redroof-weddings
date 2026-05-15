@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gatherings | Red Roof Farmhouse</title>
+<meta name="description" content="Stay at Red Roof Farmhouse in Nampa, Idaho for your wedding weekend, family reunion, corporate retreat, or women's getaway. Private lodging on 100-year-old Idaho farmland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF6EF;
+    --warm-white: #FDF9F4;
+    --red: #8B2020;
+    --red-light: #A83030;
+    --brown: #4A3728;
+    --tan: #C4A882;
+    --tan-light: #E8D9C4;
+    --text: #2C1F14;
+    --muted: #7A6A5A;
+    --border: #DDD0BC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--cream); color: var(--text); font-family: 'Jost', sans-serif; font-weight: 300; line-height: 1.7; }
+
+  nav { background: var(--warm-white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--red); font-weight: 700; letter-spacing: 0.05em; text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brown); text-decoration: none; font-weight: 400; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--red); }
+  .nav-book { background: var(--red); color: #fff; padding: 0.5rem 1.2rem; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; font-weight: 400; transition: background 0.2s; }
+  .nav-book:hover { background: var(--red-light); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--brown); transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 57px; left: 0; right: 0; background: var(--warm-white); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; z-index: 99; flex-direction: column; gap: 0; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brown); text-decoration: none; font-weight: 400; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--red); }
+  .mobile-menu .mobile-book { background: var(--red); color: #fff; padding: 0.9rem 1.5rem; text-align: center; margin-top: 1rem; border-bottom: none; }
+
+  .hero { position: relative; height: 80vh; min-height: 500px; overflow: hidden; }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(44,31,20,0.2) 0%, rgba(44,31,20,0.65) 100%); }
+  .hero-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; animation: fadeUp 1.2s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--tan-light); margin-bottom: 1rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 8vw, 5.5rem); font-weight: 400; color: #fff; line-height: 1.05; margin-bottom: 1rem; }
+  .hero h1 em { font-style: italic; color: var(--tan-light); }
+  .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.85); max-width: 520px; margin: 0 auto 2.5rem; font-weight: 300; }
+  .hero-cta { display: inline-block; background: var(--red); color: #fff; padding: 1rem 2.5rem; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; border: 2px solid var(--red); transition: all 0.25s; }
+  .hero-cta:hover { background: transparent; color: #fff; }
+
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; font-weight: 400; }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.15; color: var(--brown); margin-bottom: 1.5rem; }
+  h2 em { font-style: italic; color: var(--red); }
+  p { color: var(--muted); font-size: 0.97rem; margin-bottom: 1.2rem; max-width: 620px; }
+  .divider { width: 60px; height: 2px; background: var(--tan); margin: 1.5rem 0; }
+
+  .intro { background: var(--warm-white); }
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .intro-img { width: 100%; height: 480px; object-fit: cover; display: block; }
+
+  /* GATHERING TYPES */
+  .types { background: var(--cream); }
+  .type-block { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 4px; overflow: hidden; }
+  .type-block.reverse { direction: rtl; }
+  .type-block.reverse > * { direction: ltr; }
+  .type-img { width: 100%; height: 420px; object-fit: cover; display: block; }
+  .type-content { padding: 4rem; display: flex; flex-direction: column; justify-content: center; background: var(--warm-white); }
+  .type-tag { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-bottom: 0.8rem; display: block; }
+  .type-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; color: var(--brown); margin-bottom: 1rem; line-height: 1.2; }
+  .type-title em { font-style: italic; color: var(--red); }
+  .type-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; max-width: none; }
+  .type-details { list-style: none; margin-bottom: 1.5rem; }
+  .type-details li { font-size: 0.85rem; color: var(--muted); padding: 0.3rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.6rem; }
+  .type-details li:last-child { border-bottom: none; }
+  .type-details li::before { content: ''; width: 6px; height: 6px; background: var(--tan); border-radius: 50%; flex-shrink: 0; }
+  .type-link { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); text-decoration: none; border-bottom: 1px solid var(--tan); padding-bottom: 0.2rem; transition: color 0.2s; }
+  .type-link:hover { color: var(--red-light); }
+
+  /* WHAT'S INCLUDED */
+  .included { background: var(--brown); }
+  .included h2 { color: var(--tan-light); }
+  .included p { color: rgba(255,255,255,0.6); }
+  .included .section-label { color: var(--tan); }
+  .included .divider { background: var(--tan); }
+  .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 3rem; background: rgba(255,255,255,0.08); }
+  .included-item { background: rgba(255,255,255,0.03); padding: 2rem; }
+  .included-icon { font-size: 1.8rem; display: block; margin-bottom: 0.8rem; }
+  .included-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--tan-light); margin-bottom: 0.5rem; }
+  .included-desc { font-size: 0.85rem; color: rgba(255,255,255,0.45); margin: 0; max-width: none; line-height: 1.6; }
+
+  /* CAPACITY */
+  .capacity { background: var(--tan-light); }
+  .capacity-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .cap-card { background: var(--warm-white); border: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; }
+  .cap-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--red); line-height: 1; font-weight: 700; }
+  .cap-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--warm-white); }
+  .testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+  .testi { padding: 2rem; border: 1px solid var(--border); background: var(--cream); position: relative; }
+  .testi-quote { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--tan); line-height: 0.5; position: absolute; top: 1.5rem; left: 1.8rem; }
+  .testi-text { font-family: 'Playfair Display', serif; font-size: 0.98rem; font-style: italic; color: var(--brown); line-height: 1.6; margin-bottom: 1rem; padding-top: 2.5rem; max-width: none; }
+  .testi-author { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); }
+
+  /* FORM */
+  .form-section { background: var(--cream); }
+  .form-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; }
+  .form-info-img { width: 100%; height: 320px; object-fit: cover; margin-bottom: 2rem; }
+  .form-detail { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+  .form-detail-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .form-detail-text { font-size: 0.88rem; color: var(--muted); margin: 0; max-width: none; }
+  .form-detail-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: 0.2rem; }
+  form { background: var(--warm-white); border: 1px solid var(--border); padding: 3rem; }
+  .form-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--brown); margin-bottom: 0.4rem; }
+  .form-subtitle { font-size: 0.83rem; color: var(--muted); margin-bottom: 2rem; max-width: none; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .field { margin-bottom: 1.2rem; }
+  label { display: block; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brown); margin-bottom: 0.5rem; font-weight: 400; }
+  input, select, textarea { width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); background: var(--cream); color: var(--text); font-family: 'Jost', sans-serif; font-size: 0.93rem; font-weight: 300; outline: none; transition: border-color 0.2s; border-radius: 0; -webkit-appearance: none; }
+  input:focus, select:focus, textarea:focus { border-color: var(--red); }
+  textarea { resize: vertical; min-height: 100px; }
+  .submit-btn { width: 100%; background: var(--red); color: #fff; border: none; padding: 1.1rem; font-family: 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; font-weight: 400; margin-top: 0.5rem; }
+  .submit-btn:hover { background: var(--red-light); }
+  .submit-btn:disabled { background: var(--tan); cursor: not-allowed; }
+  .form-success { display: none; text-align: center; padding: 3rem 2rem; }
+  .form-success-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+  .form-success h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--brown); margin-bottom: 0.5rem; }
+  .form-success p { max-width: none; text-align: center; }
+  .form-note { font-size: 0.72rem; color: var(--muted); text-align: center; margin-top: 1rem; max-width: none; }
+
+  footer { background: var(--brown); padding: 4rem 2rem; text-align: center; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--tan-light); display: block; margin-bottom: 0.5rem; }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--tan); }
+  footer p { color: rgba(255,255,255,0.4); font-size: 0.82rem; max-width: none; margin: 0.3rem 0; text-align: center; }
+  footer a { color: var(--tan); text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .intro-grid, .form-grid, .testi-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .type-block, .type-block.reverse { grid-template-columns: 1fr; direction: ltr; }
+    .type-img { height: 280px; }
+    .type-content { padding: 2.5rem 1.5rem; }
+    .included-grid { grid-template-columns: 1fr; }
+    .capacity-grid { grid-template-columns: repeat(2, 1fr); }
+    .form-row { grid-template-columns: 1fr; }
+    nav { padding: 1rem; }
+    .nav-links { display: none; }
+    .nav-book { display: none; }
+    .hamburger { display: flex; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Red Roof Farmhouse</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="properties.html">Properties</a></li>
+    <li><a href="gatherings.html" class="active">Gatherings</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="#inquiry" class="nav-book">Plan Your Stay</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="properties.html">Properties</a>
+  <a href="gatherings.html">Gatherings</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="about.html">About</a>
+  <a href="#inquiry" class="mobile-book">Plan Your Stay</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <img class="hero-img" src="https://assets.hospitable.com/property_images/1890828/QsdFjo4XzF0T6BC0WPhaIIEC6CRnNRPN9uP45qCE.jpg" alt="Red Roof Farmhouse Gatherings">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Nampa, Idaho · Private Lodging</p>
+    <h1>Stay Here.<br><em>Gather</em> Here.</h1>
+    <p class="hero-sub">From wedding weekends to family reunions, corporate retreats to women's getaways. Book your stay at Red Roof Farmhouse and make it your own.</p>
+    <a href="#inquiry" class="hero-cta">Plan Your Stay</a>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="container">
+    <div class="intro-grid">
+      <div>
+        <p class="section-label">How It Works</p>
+        <h2>Three Lodging Options.<br><em>One Property.</em></h2>
+        <div class="divider"></div>
+        <p>Red Roof Farmhouse has grown into three lodging options on one property, each designed for a different size of gathering. The Lodge sleeps 18, the Farmhouse sleeps 27, and the Village brings it all together for groups of up to 31.</p>
+        <p>Woven throughout all three spaces you'll find family heirlooms collected over generations. Little pieces of history tucked into every corner that give this place a soul you simply can't manufacture.</p>
+        <p>Whether you're planning a wedding weekend, a family reunion, a corporate retreat, or time away with the people who matter most, there's a version of Red Roof Farmhouse made for you.</p>
+      </div>
+      <img class="intro-img" src="https://assets.hospitable.com/property_images/1890828/OMtrgT5Yh3PvHJwwwu8q9yuo93wcAkxlwmULnnIj.jpg" alt="Red Roof Farmhouse property">
+    </div>
+  </div>
+</section>
+
+<!-- GATHERING TYPES -->
+<section class="types" style="padding: 0; background: var(--cream);">
+
+  <!-- WEDDING WEEKENDS -->
+  <div class="type-block" id="weddings">
+    <img class="type-img" src="https://assets.hospitable.com/property_images/1890828/VCArd8Ur2lZuTdqEhpHJttrUw7DlwkDHGEd5zI7C.jpg" alt="Wedding stay at Red Roof Farmhouse">
+    <div class="type-content">
+      <span class="type-tag">Wedding Stays</span>
+      <div class="type-title">Your <em>Wedding Weekend</em><br>on Idaho Farmland</div>
+      <p class="type-desc">Stay at Red Roof Farmhouse and celebrate your wedding here. Your party arrives, settles in, and your wedding unfolds exactly as you imagined. On your timeline, surrounded by 100 years of Idaho history and the people who matter most.</p>
+      <ul class="type-details">
+        <li>Private gathering grounds outdoor ceremony space</li>
+        <li>1,350 sq ft gathering space with dance floor and DJ station</li>
+        <li>Overnight accommodations for your whole wedding party</li>
+        <li>Hot tub, fire pit, and outdoor spaces for a full weekend</li>
+        <li>JoJo and Jeff on-property throughout your stay</li>
+      </ul>
+      <a href="#inquiry" class="type-link">Plan Your Wedding Weekend</a>
+    </div>
+  </div>
+
+  <!-- FAMILY REUNIONS -->
+  <div class="type-block reverse" id="reunions">
+    <img class="type-img" src="https://assets.hospitable.com/property_images/1890828/oEui57nuo0A9FIsn9WqqWgI5CVtOfFKkSzgItDi5.jpg" alt="Family reunion at Red Roof Farmhouse">
+    <div class="type-content">
+      <span class="type-tag">Family Reunion Stays</span>
+      <div class="type-title">The Whole Family,<br><em>One Property</em></div>
+      <p class="type-desc">Sleep up to 31 guests across the property. Multiple buildings mean everyone has their space while still sharing meals, fires, and the kind of time together that actually sticks. No hotel blocks, no coordinating rides — just show up and be together.</p>
+      <ul class="type-details">
+        <li>Sleeps up to 31 guests across five configurations</li>
+        <li>Treehouse, zip line, in-ground trampoline, and outdoor movie</li>
+        <li>12-person hot tub, cold plunge pond, and fire pit</li>
+        <li>Two full kitchens and a half kitchen with Village booking</li>
+        <li>Activities for every age from 8 to 88</li>
+      </ul>
+      <a href="#inquiry" class="type-link">Plan Your Family Stay</a>
+    </div>
+  </div>
+
+  <!-- CORPORATE RETREATS -->
+  <div class="type-block" id="corporate">
+    <img class="type-img" src="https://assets.hospitable.com/property_images/1951750/kHQyXbHWcCwDkOD9T4m8ToUBY9FPofER2yNOh2eE.jpg" alt="Corporate retreat at Red Roof Farmhouse">
+    <div class="type-content">
+      <span class="type-tag">Corporate Retreat Stays</span>
+      <div class="type-title">Give Your Team a <em>Real</em><br>Reason to Disconnect</div>
+      <p class="type-desc">Stay at Red Roof and use the Lodge as your team space. Two walls of windows that open completely to the outdoors, seating for 46, seven large screen TVs, a full sound system, and enough open Idaho farmland to actually step away from screens between sessions.</p>
+      <ul class="type-details">
+        <li>1,350 sq ft Lodge gathering space seats up to 46</li>
+        <li>7 large screen smart TVs and full sound system</li>
+        <li>Private overnight accommodations for your team</li>
+        <li>Outdoor space for team activities and decompression</li>
+        <li>Full kitchen access included with Farmhouse and Village bookings</li>
+        <li>Lodge includes its own kitchen plus half kitchen in the gathering space</li>
+      </ul>
+      <a href="#inquiry" class="type-link">Plan Your Team Retreat</a>
+    </div>
+  </div>
+
+  <!-- WOMEN'S RETREATS -->
+  <div class="type-block reverse" id="retreats">
+    <img class="type-img" src="https://assets.hospitable.com/property_images/1890828/93sAZ5Az5rxiySmMiNc9EBr5NjPYWqzOHb4IHbFK.jpg" alt="Women's retreat at Red Roof Farmhouse">
+    <div class="type-content">
+      <span class="type-tag">Women's Retreat Stays</span>
+      <div class="type-title">Space to Breathe.<br><em>Room to Be.</em></div>
+      <p class="type-desc">Peace, space, and the kind of quiet that only exists when you're surrounded by Idaho farmland. Stay at Red Roof Farmhouse for a weekend your group will talk about for years. Bring your own agenda or come with none at all.</p>
+      <ul class="type-details">
+        <li>Full property privacy when booking the Village option</li>
+        <li>Hot tub, adirondack chairs, and fire pit for evening wind-downs</li>
+        <li>Peaceful gathering grounds space for reflection</li>
+        <li>Multiple cozy living spaces throughout the property</li>
+        <li>Family heirlooms and 100 years of history in every corner</li>
+      </ul>
+      <a href="#inquiry" class="type-link">Plan Your Retreat Stay</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included">
+  <div class="container">
+    <p class="section-label">Every Stay Includes</p>
+    <h2>More Than You <em>Expected</em></h2>
+    <div class="divider"></div>
+    <p>Every stay at Red Roof Farmhouse comes with access to the full property and everything on it.</p>
+    <div class="included-grid">
+      <div class="included-item">
+        <span class="included-icon">🌿</span>
+        <div class="included-title">Gathering Grounds</div>
+        <p class="included-desc">A one-of-a-kind outdoor stone paver ceremony and reflection space that photographs beautifully in any light.</p>
+      </div>
+      <div class="included-item">
+        <span class="included-icon">🌲</span>
+        <div class="included-title">Treehouse & Zip Line</div>
+        <p class="included-desc">A full treehouse structure with a zip line connecting it to the grounds. Adults love it as much as kids do.</p>
+      </div>
+      <div class="included-item">
+        <span class="included-icon">♨️</span>
+        <div class="included-title">12-Person Hot Tub</div>
+        <p class="included-desc">A large hot tub alongside a cold plunge pond and fire pit for evening gatherings under the Idaho sky.</p>
+      </div>
+      <div class="included-item">
+        <span class="included-icon">🎬</span>
+        <div class="included-title">Outdoor Movie Theater</div>
+        <p class="included-desc">A full outdoor movie setup for evening screenings on the property grounds.</p>
+      </div>
+      <div class="included-item">
+        <span class="included-icon">🎤</span>
+        <div class="included-title">Karaoke & Dance Floor</div>
+        <p class="included-desc">The Lodge features a full DJ station, dance floor, karaoke setup, and seven large screen smart TVs.</p>
+      </div>
+      <div class="included-item">
+        <span class="included-icon">🍳</span>
+        <div class="included-title">Kitchen Access</div>
+        <p class="included-desc">The Lodge includes its own full kitchen plus a half kitchen in the gathering space. The Farmhouse adds both full-size kitchens plus the half kitchen. The Village gets all three.</p>
+      </div>
+      <div class="included-item">
+        <span class="included-icon">❤️</span>
+        <div class="included-title">Hosts On-Property</div>
+        <p class="included-desc">Your hosts live on the property and are available throughout your stay. Present when needed, respectful of your space always. Full property privacy available with the Village booking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPACITY -->
+<section class="capacity" style="background:var(--tan-light);">
+  <div class="container">
+    <p class="section-label">Capacity at a Glance</p>
+    <h2>Right-Sized for <em>Your Group</em></h2>
+    <div class="divider"></div>
+    <p>Five rental configurations mean the property scales to your headcount, from an intimate couple's stay to a full family or team gathering.</p>
+    <div class="capacity-grid">
+      <div class="cap-card">
+        <div class="cap-num">31</div>
+        <div class="cap-label">Max overnight guests</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-num">46</div>
+        <div class="cap-label">Seated in Lodge space</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-num">5</div>
+        <div class="cap-label">Rental configurations</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-num">100</div>
+        <div class="cap-label">Years of farmhouse history</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <p class="section-label">What Guests Say</p>
+    <h2>Stays Worth <em>Remembering</em></h2>
+    <div class="divider"></div>
+    <div class="testi-grid">
+      <div class="testi">
+        <span class="testi-quote">"</span>
+        <p class="testi-text">Had our wedding here and it was super nice. Beautiful house and great place to have a small wedding. Jeff and his wife were super helpful and made our stay easy and comfortable.</p>
+        <p class="testi-author">Nathan · August 2025 · Wedding Weekend Stay</p>
+      </div>
+      <div class="testi">
+        <span class="testi-quote">"</span>
+        <p class="testi-text">This place was fantastic. We were a large group of 17 ranging in age from 88 to 10. Every night we were in the back yard enjoying the sunset and in the hot tub. JoJo and Jeff were terrific hosts. 10/10.</p>
+        <p class="testi-author">Victoria · July 2025 · Family Reunion Stay</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section class="form-section" id="inquiry">
+  <div class="container">
+    <div class="form-grid">
+      <div>
+        <img class="form-info-img" src="https://assets.hospitable.com/property_images/1890828/g643gGy7xtWbQHzZb46YYm1gseQXDIpVmUPf8474.jpg" alt="Red Roof Farmhouse">
+        <p class="section-label">Plan Your Stay</p>
+        <h2>Tell Us About <em>Your Gathering</em></h2>
+        <div class="divider"></div>
+        <p>Fill out the form and JoJo will be in touch personally within 24 hours to talk through your stay.</p>
+        <div class="form-detail">
+          <span class="form-detail-icon">📱</span>
+          <div>
+            <span class="form-detail-label">Call or Text JoJo</span>
+            <p class="form-detail-text"><a href="tel:2088707832" style="color:var(--red);text-decoration:none;">208-870-7832</a></p>
+          </div>
+        </div>
+        <div class="form-detail">
+          <span class="form-detail-icon">📧</span>
+          <div>
+            <span class="form-detail-label">Email</span>
+            <p class="form-detail-text"><a href="mailto:Redrooffarmhouseretreats@gmail.com" style="color:var(--red);text-decoration:none;">Redrooffarmhouseretreats@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="form-detail">
+          <span class="form-detail-icon">📅</span>
+          <div>
+            <span class="form-detail-label">Availability</span>
+            <p class="form-detail-text">Limited 2026 dates remaining. 2027 bookings now open.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form id="inquiryForm" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" method="POST">
+          <input type="hidden" name="_subject" value="New Gathering Inquiry from Red Roof Farmhouse Website">
+          <p class="form-title">Stay Inquiry</p>
+          <p class="form-subtitle">Tell us about your group and your dates and JoJo will get back to you within 24 hours.</p>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="208-000-0000">
+            </div>
+            <div class="field">
+              <label for="date">Preferred Dates</label>
+              <input type="date" id="date" name="preferred_date">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="type">Type of Stay</label>
+              <select id="type" name="stay_type">
+                <option value="">Select one</option>
+                <option>Wedding Weekend</option>
+                <option>Family Reunion</option>
+                <option>Corporate Retreat</option>
+                <option>Women's Retreat</option>
+                <option>Birthday or Celebration</option>
+                <option>Vacation Stay</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="guests">Group Size</label>
+              <select id="guests" name="group_size">
+                <option value="">Select range</option>
+                <option>Under 10</option>
+                <option>10 to 20</option>
+                <option>20 to 31</option>
+                <option>31 or more (day guests)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Tell Us About Your Stay</label>
+            <textarea id="message" name="message" placeholder="Share any details about your group, what you're celebrating, or questions you have for JoJo..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">Send My Inquiry</button>
+          <p class="form-note">We respond to all inquiries within 24 hours. Your information is never shared.</p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <span class="form-success-icon">🌿</span>
+          <h3>Thank You!</h3>
+          <p>JoJo will be in touch within 24 hours to talk through your stay. We can't wait to hear more about your gathering.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Red Roof Farmhouse</span>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="properties.html">Properties</a>
+    <a href="gatherings.html">Gatherings</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+  </div>
+  <p>Nampa, Idaho · Est. 1921</p>
+  <p><a href="tel:2088707832">208-870-7832</a> &nbsp;·&nbsp; <a href="mailto:Redrooffarmhouseretreats@gmail.com">Redrooffarmhouseretreats@gmail.com</a></p>
+  <p style="margin-top:1.5rem; font-size:0.68rem; opacity:0.3;">Website by Howard Media · howard.media</p>
+</footer>
+
+<script>
+  const form = document.getElementById('inquiryForm');
+  const btn = document.getElementById('submitBtn');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send My Inquiry';
+        alert('Something went wrong. Please contact JoJo directly at Redrooffarmhouseretreats@gmail.com');
+      }
+    } catch(err) {
+      btn.disabled = false;
+      btn.textContent = 'Send My Inquiry';
+      alert('Something went wrong. Please contact JoJo directly at Redrooffarmhouseretreats@gmail.com');
+    }
+  });
+</script>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    });
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
