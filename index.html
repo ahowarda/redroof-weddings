@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Weddings & Events | Red Roof Farmhouse</title>
-<meta name="description" content="Intimate weddings and events on 100-year-old Idaho farmland in Nampa. Private ceremony space, hot tub, treehouse, and accommodations for up to 31 guests.">
+<title>Red Roof Farmhouse | Nampa, Idaho</title>
+<meta name="description" content="Red Roof Farmhouse in Nampa, Idaho. A 100-year-old retreat property offering weddings, corporate retreats, family reunions, and vacation rentals on Idaho farmland.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -17,7 +17,6 @@
     --brown: #4A3728;
     --tan: #C4A882;
     --tan-light: #E8D9C4;
-    --sage: #7A8C6E;
     --text: #2C1F14;
     --muted: #7A6A5A;
     --border: #DDD0BC;
@@ -28,29 +27,50 @@
 
   /* NAV */
   nav { background: var(--warm-white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
-  .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--red); font-weight: 700; letter-spacing: 0.05em; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--red); font-weight: 700; letter-spacing: 0.05em; text-decoration: none; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brown); text-decoration: none; font-weight: 400; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--red); }
+  .nav-book { background: var(--red); color: #fff; padding: 0.5rem 1.2rem; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; font-weight: 400; transition: background 0.2s; }
+  .nav-book:hover { background: var(--red-light); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--brown); transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 57px; left: 0; right: 0; background: var(--warm-white); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; z-index: 99; flex-direction: column; gap: 0; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brown); text-decoration: none; font-weight: 400; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--red); }
+  .mobile-menu .mobile-book { background: var(--red); color: #fff; padding: 0.9rem 1.5rem; text-align: center; margin-top: 1rem; border-bottom: none; }
 
   /* HERO */
-  .hero { position: relative; height: 90vh; min-height: 580px; overflow: hidden; }
+  .hero { position: relative; height: 96vh; min-height: 600px; overflow: hidden; }
   .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(44,31,20,0.2) 0%, rgba(44,31,20,0.65) 100%); }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(44,31,20,0.15) 0%, rgba(44,31,20,0.65) 100%); }
   .hero-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; animation: fadeUp 1.2s ease both; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--tan-light); margin-bottom: 1rem; font-weight: 400; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 8vw, 5.5rem); font-weight: 400; color: #fff; line-height: 1.05; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 400; color: #fff; line-height: 1.05; margin-bottom: 1rem; }
   .hero h1 em { font-style: italic; color: var(--tan-light); }
-  .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.85); max-width: 460px; margin: 0 auto 2.5rem; font-weight: 300; }
-  .hero-cta { display: inline-block; background: var(--red); color: #fff; padding: 1rem 2.5rem; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; font-weight: 400; border: 2px solid var(--red); transition: all 0.25s; }
-  .hero-cta:hover { background: transparent; color: #fff; }
+  .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,0.85); max-width: 500px; margin: 0 auto 2.5rem; font-weight: 300; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .btn-primary { display: inline-block; background: var(--red); color: #fff; padding: 1rem 2.5rem; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; font-weight: 400; border: 2px solid var(--red); transition: all 0.25s; }
+  .btn-primary:hover { background: transparent; color: #fff; }
+  .btn-secondary { display: inline-block; background: transparent; color: #fff; padding: 1rem 2.5rem; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; font-weight: 400; border: 2px solid rgba(255,255,255,0.6); transition: all 0.25s; }
+  .btn-secondary:hover { border-color: #fff; }
+  .hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+  .hero-scroll span { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+  .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-  /* PHOTO GALLERY STRIP */
-  .gallery-strip { display: grid; grid-template-columns: repeat(5, 1fr); height: 220px; gap: 3px; }
-  .gallery-strip img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
-  .gallery-strip img:hover { transform: scale(1.04); }
-  .gallery-strip-wrap { overflow: hidden; }
+  /* STRIP STATS */
+  .stats-strip { background: var(--brown); padding: 2rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; }
+  .stat-item { text-align: center; padding: 1.5rem 1rem; border-right: 1px solid rgba(255,255,255,0.1); }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--tan); font-weight: 700; line-height: 1; display: block; }
+  .stat-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 0.4rem; display: block; }
 
   /* SECTIONS */
   section { padding: 6rem 2rem; }
@@ -61,15 +81,46 @@
   p { color: var(--muted); font-size: 0.97rem; margin-bottom: 1.2rem; max-width: 600px; }
   .divider { width: 60px; height: 2px; background: var(--tan); margin: 1.5rem 0; }
 
-  /* INTRO */
+  /* INTRO STORY */
   .intro { background: var(--warm-white); }
   .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-  .intro-image-stack { position: relative; }
-  .intro-img-main { width: 100%; height: 480px; object-fit: cover; display: block; }
-  .intro-img-secondary { position: absolute; bottom: -2rem; right: -2rem; width: 55%; height: 220px; object-fit: cover; border: 5px solid var(--warm-white); }
-  .intro-image-badge { position: absolute; top: 1.5rem; left: -1.5rem; background: var(--red); color: #fff; padding: 1.2rem; text-align: center; width: 110px; height: 110px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 50%; }
-  .badge-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; line-height: 1; }
-  .badge-text { font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.3rem; opacity: 0.9; }
+  .intro-img-wrap { position: relative; }
+  .intro-img-main { width: 100%; height: 520px; object-fit: cover; display: block; }
+  .intro-img-badge { position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--red); color: #fff; padding: 1.5rem; text-align: center; width: 130px; height: 130px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 50%; }
+  .badge-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; line-height: 1; }
+  .badge-label { font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.3rem; opacity: 0.9; }
+
+  /* SPACES */
+  .spaces { background: var(--cream); }
+  .spaces-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .space-card { background: var(--warm-white); border: 1px solid var(--border); overflow: hidden; transition: transform 0.2s; text-decoration: none; display: block; }
+  .space-card:hover { transform: translateY(-6px); }
+  .space-img { width: 100%; height: 240px; object-fit: cover; display: block; }
+  .space-content { padding: 1.8rem; }
+  .space-tag { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); font-weight: 400; display: block; margin-bottom: 0.6rem; }
+  .space-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--brown); margin-bottom: 0.6rem; }
+  .space-desc { font-size: 0.88rem; color: var(--muted); margin: 0; max-width: none; line-height: 1.6; }
+  .space-cap { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tan); margin-top: 1rem; display: block; font-weight: 400; }
+
+  /* USE CASES */
+  .uses { background: var(--brown); }
+  .uses h2 { color: var(--tan-light); }
+  .uses p { color: rgba(255,255,255,0.6); }
+  .uses .section-label { color: var(--tan); }
+  .uses .divider { background: var(--tan); }
+  .uses-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-top: 3rem; background: rgba(255,255,255,0.08); }
+  .use-item { background: rgba(255,255,255,0.03); padding: 2.5rem 2rem; transition: background 0.2s; }
+  .use-item:hover { background: rgba(255,255,255,0.07); }
+  .use-icon { font-size: 2rem; display: block; margin-bottom: 1rem; }
+  .use-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--tan-light); margin-bottom: 0.8rem; font-weight: 500; }
+  .use-desc { font-size: 0.88rem; color: rgba(255,255,255,0.5); margin: 0; max-width: none; line-height: 1.6; }
+
+  /* GALLERY */
+  .gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 300px 300px; gap: 4px; margin-top: 3rem; }
+  .gallery-item { overflow: hidden; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-item.tall { grid-row: span 2; }
 
   /* VIDEO */
   .video-section { background: var(--brown); padding: 5rem 2rem; }
@@ -80,258 +131,246 @@
   .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-top: 2.5rem; }
   .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-  /* FEATURES */
-  .features { background: var(--cream); }
-  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
-  .feature { padding: 2.5rem 2rem; background: var(--warm-white); border: 1px solid var(--border); border-top: 3px solid var(--red); transition: transform 0.2s; }
-  .feature:hover { transform: translateY(-4px); }
-  .feature-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
-  .feature h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 500; color: var(--brown); margin-bottom: 0.8rem; }
-  .feature p { font-size: 0.88rem; color: var(--muted); margin: 0; max-width: none; }
-
-  /* PHOTO MOSAIC */
-  .mosaic { background: var(--brown); padding: 4rem 0; }
-  .mosaic-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 280px 280px; gap: 4px; max-width: 1200px; margin: 0 auto; }
-  .mosaic-item { overflow: hidden; }
-  .mosaic-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
-  .mosaic-item:hover img { transform: scale(1.05); }
-  .mosaic-item.tall { grid-row: span 2; }
-
-  /* CAPACITY */
-  .capacity { background: var(--tan-light); }
-  .capacity-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
-  .cap-card { background: var(--warm-white); border: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; }
-  .cap-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--red); line-height: 1; font-weight: 700; }
-  .cap-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
-
   /* TESTIMONIALS */
   .testimonials { background: var(--warm-white); }
-  .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
-  .testimonial { padding: 2rem; border: 1px solid var(--border); background: var(--cream); position: relative; }
-  .testimonial:before { content: '"'; font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--tan); line-height: 0.5; position: absolute; top: 2rem; left: 1.8rem; }
-  .testimonial-text { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; color: var(--brown); line-height: 1.6; margin-bottom: 1rem; padding-top: 2.5rem; max-width: none; }
-  .testimonial-author { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .testi { padding: 2rem; border: 1px solid var(--border); background: var(--cream); position: relative; }
+  .testi-quote { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--tan); line-height: 0.5; position: absolute; top: 1.5rem; left: 1.8rem; }
+  .testi-text { font-family: 'Playfair Display', serif; font-size: 0.98rem; font-style: italic; color: var(--brown); line-height: 1.6; margin-bottom: 1rem; padding-top: 2.5rem; max-width: none; }
+  .testi-author { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); }
 
-  /* FORM */
-  .form-section { background: var(--cream); }
-  .form-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; }
-  .form-info-img { width: 100%; height: 340px; object-fit: cover; margin-bottom: 2rem; }
-  .form-detail { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
-  .form-detail-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
-  .form-detail-text { font-size: 0.88rem; color: var(--muted); margin: 0; max-width: none; }
-  .form-detail-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: 0.2rem; font-weight: 400; }
-  form { background: var(--warm-white); border: 1px solid var(--border); padding: 3rem; }
-  .form-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--brown); margin-bottom: 0.4rem; }
-  .form-subtitle { font-size: 0.83rem; color: var(--muted); margin-bottom: 2rem; max-width: none; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .field { margin-bottom: 1.2rem; }
-  label { display: block; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brown); margin-bottom: 0.5rem; font-weight: 400; }
-  input, select, textarea { width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); background: var(--cream); color: var(--text); font-family: 'Jost', sans-serif; font-size: 0.93rem; font-weight: 300; outline: none; transition: border-color 0.2s; border-radius: 0; -webkit-appearance: none; }
-  input:focus, select:focus, textarea:focus { border-color: var(--red); }
-  textarea { resize: vertical; min-height: 100px; }
-  .submit-btn { width: 100%; background: var(--red); color: #fff; border: none; padding: 1.1rem; font-family: 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; font-weight: 400; margin-top: 0.5rem; }
-  .submit-btn:hover { background: var(--red-light); }
-  .submit-btn:disabled { background: var(--tan); cursor: not-allowed; }
-  .form-success { display: none; text-align: center; padding: 3rem 2rem; }
-  .form-success-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
-  .form-success h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--brown); margin-bottom: 0.5rem; }
-  .form-success p { max-width: none; text-align: center; }
-  .form-note { font-size: 0.72rem; color: var(--muted); text-align: center; margin-top: 1rem; max-width: none; }
+  /* CTA BAND */
+  .cta-band { background: var(--red); padding: 5rem 2rem; text-align: center; }
+  .cta-band h2 { color: #fff; margin-bottom: 1rem; }
+  .cta-band p { color: rgba(255,255,255,0.8); margin: 0 auto 2rem; text-align: center; }
+  .btn-white { display: inline-block; background: #fff; color: var(--red); padding: 1rem 2.5rem; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; font-weight: 500; border: 2px solid #fff; transition: all 0.25s; }
+  .btn-white:hover { background: transparent; color: #fff; }
 
   /* FOOTER */
   footer { background: var(--brown); padding: 4rem 2rem; text-align: center; }
   .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--tan-light); display: block; margin-bottom: 0.5rem; }
-  footer p { color: rgba(255,255,255,0.5); font-size: 0.83rem; max-width: none; margin: 0.3rem 0; text-align: center; }
-  footer a { color: var(--tan); text-decoration: none; }
-  .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; }
-  .footer-links a { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--tan); }
+  footer p { color: rgba(255,255,255,0.4); font-size: 0.82rem; max-width: none; margin: 0.3rem 0; text-align: center; }
+  footer a { color: var(--tan); text-decoration: none; }
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    .intro-grid, .form-grid, .testimonials-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .features-grid { grid-template-columns: 1fr; }
-    .capacity-grid { grid-template-columns: repeat(2, 1fr); }
-    .form-row { grid-template-columns: 1fr; }
-    .gallery-strip { grid-template-columns: repeat(3, 1fr); }
-    .gallery-strip img:nth-child(4), .gallery-strip img:nth-child(5) { display: none; }
-    .mosaic-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-    .mosaic-item.tall { grid-row: span 1; }
-    form { padding: 2rem 1.5rem; }
+    .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .spaces-grid { grid-template-columns: 1fr; }
+    .uses-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item.tall { grid-row: span 1; }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    .hero-btns { flex-direction: column; align-items: center; }
     nav { padding: 1rem; }
     .nav-links { display: none; }
-    .intro-img-secondary { display: none; }
-    .intro-image-badge { left: 0.5rem; }
+    .nav-book { display: none; }
+    .hamburger { display: flex; }
+    .intro-img-badge { bottom: -1rem; right: 0; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo-text">Red Roof Farmhouse</div>
+  <a href="index.html" class="nav-logo">Red Roof Farmhouse</a>
   <ul class="nav-links">
-    <li><a href="https://redrooffarmhouse.com/">Home</a></li>
-    <li><a href="https://redrooffarmhouse.com/">Properties</a></li>
-    <li><a href="#" class="active">Weddings & Events</a></li>
-    <li><a href="#inquiry">Inquire</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="properties.html">Properties</a></li>
+    <li><a href="gatherings.html">Gatherings</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="about.html">About</a></li>
   </ul>
+  <a href="#inquire" class="nav-book">Book a Tour</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- HERO with real property image -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="properties.html">Properties</a>
+  <a href="gatherings.html">Gatherings</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="about.html">About</a>
+  <a href="#inquire" class="mobile-book">Book a Tour</a>
+</div>
+
+<!-- HERO -->
 <div class="hero">
-  <img class="hero-img" src="https://assets.hospitable.com/property_images/1890828/cTND417S04vV4E8TL16DClsXULw1k50GQCPnAnZN.jpg" alt="Red Roof Farmhouse exterior">
+  <img class="hero-img" src="https://assets.hospitable.com/property_images/1890828/cTND417S04vV4E8TL16DClsXULw1k50GQCPnAnZN.jpg" alt="Red Roof Farmhouse Nampa Idaho">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Nampa, Idaho · Est. 1921</p>
-    <h1>Your <em>Wedding</em><br>on Idaho Farmland</h1>
-    <p class="hero-sub">Intimate, private, and unlike anywhere else in the Treasure Valley.</p>
-    <a href="#inquiry" class="hero-cta">Check Availability</a>
+    <h1>Where <em>Idaho</em><br>Gathers</h1>
+    <p class="hero-sub">A 100-year-old farmhouse property offering weddings, retreats, family reunions, and unforgettable getaways on Idaho farmland.</p>
+    <div class="hero-btns">
+      <a href="gatherings.html" class="btn-primary">Plan Your Stay</a>
+      <a href="properties.html" class="btn-secondary">Explore the Property</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Discover</span>
+    <div class="scroll-line"></div>
   </div>
 </div>
 
-
-<!-- GALLERY STRIP -->
-<!-- <div class="gallery-strip-wrap">
-  <div class="gallery-strip">
-    <img src="https://assets.hospitable.com/property_images/1890828/oEui57nuo0A9FIsn9WqqWgI5CVtOfFKkSzgItDi5.jpg" alt="Property view">
-    <img src="https://assets.hospitable.com/property_images/1890828/QsdFjo4XzF0T6BC0WPhaIIEC6CRnNRPN9uP45qCE.jpg" alt="Outdoor space">
-    <img src="https://assets.hospitable.com/property_images/1890828/93sAZ5Az5rxiySmMiNc9EBr5NjPYWqzOHb4IHbFK.jpg" alt="Gathering area">
-    <img src="https://assets.hospitable.com/property_images/1890828/DR8Y1F0iuf0nMbAvoNt0SYTlRIOvoFv02lQYS3XX.jpg" alt="Fire pit">
-    <img src="https://assets.hospitable.com/property_images/1890828/VCArd8Ur2lZuTdqEhpHJttrUw7DlwkDHGEd5zI7C.jpg" alt="Hot tub area">
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <span class="stat-num">100</span>
+    <span class="stat-label">Years of History</span>
   </div>
-</div> -->
+  <div class="stat-item">
+    <span class="stat-num">31</span>
+    <span class="stat-label">Overnight Guests</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">5</span>
+    <span class="stat-label">Rental Spaces</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">11</span>
+    <span class="stat-label">Weddings in 2026</span>
+  </div>
+</div>
 
-<!-- INTRO -->
+<!-- INTRO STORY -->
 <section class="intro">
   <div class="container">
     <div class="intro-grid">
-      <div class="intro-image-stack">
-        <img class="intro-img-main" src="https://assets.hospitable.com/property_images/1951750/8Zlu0rAqcRHubrpu9apjmIJ353cAYZ4BB8OONZYf.jpg" alt="Red Roof Farmhouse property">
-        <img class="intro-img-secondary" src="https://assets.hospitable.com/property_images/1890828/IsT46D8kvkjWrMr2IUgEjcKKSE0YxX6CSEZSQ6K3.jpg" alt="Outdoor seating">
-        <div class="intro-image-badge">
-          <span class="badge-num">11</span>
-          <span class="badge-text">Weddings in 2026</span>
+      <div class="intro-img-wrap">
+        <img class="intro-img-main" src="https://assets.hospitable.com/property_images/1890828/OMtrgT5Yh3PvHJwwwu8q9yuo93wcAkxlwmULnnIj.jpg" alt="Red Roof Farmhouse property">
+        <div class="intro-img-badge">
+          <span class="badge-num">1921</span>
+          <span class="badge-label">Est. in Nampa</span>
         </div>
       </div>
       <div>
-        <p class="section-label">About the Venue</p>
-        <h2>A Place That Feels Like <em>Home</em></h2>
+        <p class="section-label">Our Story</p>
+        <h2>More Than a <em>Property</em></h2>
         <div class="divider"></div>
-        <p>Tucked into the farmlands of Nampa, Red Roof Farmhouse is a 100-year-old property lovingly restored by JoJo and Jeff. With multiple buildings, outdoor ceremony spaces, a labyrinth garden, treehouse, and zip line, your wedding here feels personal, not packaged.</p>
-        <p>We host small, intentional weddings for couples who want something real over something formal. No strangers walking through. No cookie-cutter ballrooms. Just your people, open Idaho skies, and a setting that photographs beautifully from every angle.</p>
-        <p>We live on the property and personally care about your day from the first inquiry to the last dance.</p>
+        <p>What started as a 100-year-old Idaho farmhouse has grown into something we never could have planned. JoJo and Jeff have lovingly restored this historic property into a one-of-a-kind retreat that serves as a gathering place for families, couples, and groups from across the Treasure Valley and beyond.</p>
+        <p>Woven throughout all three spaces, you'll find family heirlooms collected over generations. Little pieces of history tucked into every corner that give this place a soul you simply can't manufacture.</p>
+        <p>This is not just a rental. It's a place that remembers the people who have gathered here, and looks forward to the ones still to come.</p>
+        <a href="about.html" style="display:inline-block; margin-top:1rem; font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--red); text-decoration:none; border-bottom:1px solid var(--tan); padding-bottom:0.2rem;">Read Our Story</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VIDEO SECTION - FIXED VIMEO EMBED -->
-<section class="video-section">
+<!-- THREE SPACES -->
+<section class="spaces">
   <div class="container">
-    <p class="section-label">See the Property</p>
-    <h2>Experience Red Roof <em>Farmhouse</em></h2>
+    <p class="section-label">The Property</p>
+    <h2>Three Spaces, <em>One Property</em></h2>
     <div class="divider"></div>
-    <p>Take a full tour of the property and imagine your day here.</p>
-    <div class="video-wrapper">
-      <iframe
-        src="https://player.vimeo.com/video/1191946854?autoplay=0&loop=0&color=C4A882&title=0&byline=0&portrait=0"
-        width="640"
-        height="360"
-        frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture
-        autoplay=1&muted=1&loop="
-        allowfullscreen>
-      </iframe>
+    <p>Whether you're planning an intimate getaway for two or a celebration for fifty, there's a configuration of Red Roof built for you.</p>
+
+    <div class="spaces-grid">
+      <a href="properties.html#farmhouse" class="space-card">
+        <img class="space-img" src="https://assets.hospitable.com/property_images/1890828/QsdFjo4XzF0T6BC0WPhaIIEC6CRnNRPN9uP45qCE.jpg" alt="The Farmhouse">
+        <div class="space-content">
+          <span class="space-tag">Sleeps up to 18</span>
+          <div class="space-name">The Farmhouse</div>
+          <p class="space-desc">Where it all began. Cozy, full of character, and full of family heirlooms. The heart of the property with a full kitchen, multiple bedrooms, and that true Idaho farmhouse feel.</p>
+          <span class="space-cap">Perfect for small groups & couples</span>
+        </div>
+      </a>
+
+      <a href="properties.html#lodge" class="space-card">
+        <img class="space-img" src="https://assets.hospitable.com/property_images/1951750/kHQyXbHWcCwDkOD9T4m8ToUBY9FPofER2yNOh2eE.jpg" alt="The Lodge">
+        <div class="space-content">
+          <span class="space-tag">1,350 sq ft event space</span>
+          <div class="space-name">The Lodge</div>
+          <p class="space-desc">Our newest addition. Two walls of windows that open completely to the outdoors, a dance floor, DJ station, karaoke, and more amenities than most venues twice the size.</p>
+          <span class="space-cap">Perfect for events & celebrations</span>
+        </div>
+      </a>
+
+      <a href="properties.html#village" class="space-card">
+        <img class="space-img" src="https://assets.hospitable.com/property_images/1890828/oEui57nuo0A9FIsn9WqqWgI5CVtOfFKkSzgItDi5.jpg" alt="The Village">
+        <div class="space-content">
+          <span class="space-tag">Sleeps up to 31</span>
+          <div class="space-name">The Village</div>
+          <p class="space-desc">A collection of cottages spread across the property. Larger groups get their own private space while still gathering together under the same Idaho sky.</p>
+          <span class="space-cap">Perfect for large groups & retreats</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="features">
+<!-- USE CASES -->
+<section class="uses">
   <div class="container">
-    <p class="section-label">What's Included</p>
-    <h2>Everything You Need for <em>Your Day</em></h2>
+    <p class="section-label">What Brings People Here</p>
+    <h2>Every Reason to <em>Gather</em></h2>
     <div class="divider"></div>
-    <div class="features-grid">
-      <div class="feature">
-        <span class="feature-icon">🌿</span>
-        <h3>Labyrinth Ceremony Space</h3>
-        <p>Our private outdoor labyrinth is a one-of-a-kind ceremony setting that photographs beautifully in every season and every light.</p>
+    <p>Red Roof Farmhouse has welcomed couples, families, corporate teams, and women's groups. Whatever brings your people together, this property was made for it.</p>
+    <div class="uses-grid">
+      <div class="use-item">
+        <span class="use-icon">💍</span>
+        <div class="use-title">Weddings & Elopements</div>
+        <p class="use-desc">11 weddings in 2026 and counting. Intimate, private, and photographed beautifully from every angle. Our gathering grounds ceremony space is unlike anything else in the Treasure Valley.</p>
       </div>
-      <div class="feature">
-        <span class="feature-icon">🏡</span>
-        <h3>Accommodations On-Site</h3>
-        <p>Your wedding party stays together. Multiple buildings sleep up to 31 guests so nobody has to drive home after the celebration.</p>
+      <div class="use-item">
+        <span class="use-icon">🏢</span>
+        <div class="use-title">Corporate Retreats</div>
+        <p class="use-desc">Take your team off-site and actually disconnect. The Lodge event space seats up to 46, with full AV, screens, and enough outdoor space to breathe between sessions.</p>
       </div>
-      <div class="feature">
-        <span class="feature-icon">🌲</span>
-        <h3>Treehouse, Zip Line & Hot Tub</h3>
-        <p>A treehouse, zip line, 12-person hot tub, fire pit, cold plunge pond, and in-ground trampoline give guests of all ages something to love.</p>
+      <div class="use-item">
+        <span class="use-icon">👨‍👩‍👧‍👦</span>
+        <div class="use-title">Family Reunions</div>
+        <p class="use-desc">Sleep up to 31 guests on-site. A treehouse, zip line, hot tub, trampoline, fire pit, and open Idaho farmland give every generation something to love.</p>
       </div>
-      <div class="feature">
-        <span class="feature-icon">🎉</span>
-        <h3>1,350 sq ft Event Space</h3>
-        <p>Two walls of windows that open up completely, tables and chairs for 46, DJ station, dance floor, karaoke, and 7 large screen smart TVs.</p>
-      </div>
-      <div class="feature">
-        <span class="feature-icon">🔒</span>
-        <h3>Complete Privacy</h3>
-        <p>When you book Red Roof Farmhouse the entire property is yours. No other guests, no interruptions, no strangers walking through your ceremony.</p>
-      </div>
-      <div class="feature">
-        <span class="feature-icon">❤️</span>
-        <h3>Hosted by JoJo & Jeff</h3>
-        <p>We live on the property and are available throughout your stay. We genuinely care about your day and it shows in every review we receive.</p>
+      <div class="use-item">
+        <span class="use-icon">🌸</span>
+        <div class="use-title">Women's Retreats</div>
+        <p class="use-desc">A peaceful, private property where your group can be fully present. Whether it's a wellness weekend, a book club, or a girls' trip, Red Roof was built for this kind of gathering.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PHOTO MOSAIC -->
-<div class="mosaic">
-  <div class="mosaic-grid">
-    <div class="mosaic-item tall">
-      <img src="https://assets.hospitable.com/property_images/1951750/kHQyXbHWcCwDkOD9T4m8ToUBY9FPofER2yNOh2eE.jpg" alt="Red Roof Farmhouse">
+<!-- GALLERY -->
+<section style="background:var(--cream); padding: 5rem 0;">
+  <div class="container">
+    <p class="section-label">The Grounds</p>
+    <h2>See It for <em>Yourself</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="gallery-grid" style="max-width:1200px; margin: 0 auto;">
+    <div class="gallery-item tall">
+      <img src="https://assets.hospitable.com/property_images/1890828/VCArd8Ur2lZuTdqEhpHJttrUw7DlwkDHGEd5zI7C.jpg" alt="Red Roof Farmhouse grounds">
     </div>
-    <div class="mosaic-item">
-      <img src="https://assets.hospitable.com/property_images/1951750/a7ES6pFkie24D2HRmqq2Ad4SvOOAk407F1Jjtpue.jpg" alt="Property detail">
+    <div class="gallery-item">
+      <img src="https://assets.hospitable.com/property_images/1890828/93sAZ5Az5rxiySmMiNc9EBr5NjPYWqzOHb4IHbFK.jpg" alt="Property detail">
     </div>
-    <div class="mosaic-item">
+    <div class="gallery-item">
       <img src="https://assets.hospitable.com/property_images/1890828/DR8Y1F0iuf0nMbAvoNt0SYTlRIOvoFv02lQYS3XX.jpg" alt="Outdoor space">
     </div>
-    <div class="mosaic-item">
+    <div class="gallery-item">
       <img src="https://assets.hospitable.com/property_images/1890828/g643gGy7xtWbQHzZb46YYm1gseQXDIpVmUPf8474.jpg" alt="Gathering area">
     </div>
-    <div class="mosaic-item">
-      <img src="https://assets.hospitable.com/property_images/1890828/IsT46D8kvkjWrMr2IUgEjcKKSE0YxX6CSEZSQ6K3.jpg" alt="Interior">
+    <div class="gallery-item">
+      <img src="https://assets.hospitable.com/property_images/1890828/IsT46D8kvkjWrMr2IUgEjcKKSE0YxX6CSEZSQ6K3.jpg" alt="Evening setting">
     </div>
   </div>
-</div>
+</section>
 
-<!-- CAPACITY -->
-<section class="capacity">
+<!-- VIDEO -->
+<section class="video-section">
   <div class="container">
-    <p class="section-label">Capacity & Spaces</p>
-    <h2>Room for Everyone <em>You Love</em></h2>
+    <p class="section-label">Property Tour</p>
+    <h2>See the Full <em>Property</em></h2>
     <div class="divider"></div>
-    <p>Five rental configurations means the property scales to exactly your guest count, from an intimate elopement to a full family celebration.</p>
-    <div class="capacity-grid">
-      <div class="cap-card">
-        <div class="cap-num">31</div>
-        <div class="cap-label">Max overnight guests</div>
-      </div>
-      <div class="cap-card">
-        <div class="cap-num">46</div>
-        <div class="cap-label">Seated event capacity</div>
-      </div>
-      <div class="cap-card">
-        <div class="cap-num">5</div>
-        <div class="cap-label">Rental configurations</div>
-      </div>
-      <div class="cap-card">
-        <div class="cap-num">100</div>
-        <div class="cap-label">Years of history</div>
-      </div>
+    <p>Take a tour of all three spaces and the grounds before you visit in person.</p>
+    <div class="video-wrapper">
+      <iframe src="https://player.vimeo.com/video/1191946854?autoplay=0&loop=0&color=C4A882&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
@@ -339,160 +378,80 @@
 <!-- TESTIMONIALS -->
 <section class="testimonials">
   <div class="container">
-    <p class="section-label">What Couples Say</p>
+    <p class="section-label">What Guests Say</p>
     <h2>Memories Made <em>Here</em></h2>
     <div class="divider"></div>
     <div class="testimonials-grid">
-      <div class="testimonial">
-        <p class="testimonial-text">Had our wedding here and it was super nice. Beautiful house and great place to have a small wedding or family reunion. Jeff and his wife were super helpful and made our stay easy and comfortable.</p>
-        <p class="testimonial-author">Nathan · August 2025</p>
+      <div class="testi">
+        <span class="testi-quote">"</span>
+        <p class="testi-text">Had our wedding here and it was super nice. Beautiful house and great place to have a small wedding. Jeff and his wife were super helpful and made our stay easy and comfortable.</p>
+        <p class="testi-author">Nathan · August 2025 · Wedding</p>
       </div>
-      <div class="testimonial">
-        <p class="testimonial-text">This place was fantastic. We were a large group of 17 ranging in age from 88 to 10. Every night we were in the back yard enjoying the sunset, resting in the adirondack chairs, or in the hot tub. JoJo and Jeff were terrific hosts. 10/10.</p>
-        <p class="testimonial-author">Victoria · July 2025</p>
+      <div class="testi">
+        <span class="testi-quote">"</span>
+        <p class="testi-text">This place was fantastic. We were a large group of 17 ranging in age from 88 to 10. Every night we were in the back yard enjoying the sunset and in the hot tub. JoJo and Jeff were terrific hosts. 10/10.</p>
+        <p class="testi-author">Victoria · July 2025 · Family Reunion</p>
+      </div>
+      <div class="testi">
+        <span class="testi-quote">"</span>
+        <p class="testi-text">The perfect place to disconnect and just be together. The property is stunning, the heirlooms throughout give it so much character, and JoJo made us feel completely at home from the moment we arrived.</p>
+        <p class="testi-author">Sarah · 2025 · Women's Retreat</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FORM -->
-<section class="form-section" id="inquiry">
-  <div class="container">
-    <div class="form-grid">
-      <div class="form-info">
-        <img class="form-info-img" src="https://assets.hospitable.com/property_images/1951750/AdHH4UHE8Fjn1c2KcdJDXwAsIRpUk3LVHgqwr0FU.jpg" alt="Red Roof Farmhouse">
-        <p class="section-label">Get in Touch</p>
-        <h2>Let's Talk About <em>Your Day</em></h2>
-        <div class="divider"></div>
-        <p>We'd love to hear about what you're envisioning. JoJo will be in touch personally within 24 hours.</p>
-        <div class="form-detail">
-          <span class="form-detail-icon">📱</span>
-          <div>
-            <span class="form-detail-label">Call or Text JoJo</span>
-            <p class="form-detail-text"><a href="tel:2088707832" style="color:var(--red);text-decoration:none;">208-870-7832</a></p>
-          </div>
-        </div>
-        <div class="form-detail">
-          <span class="form-detail-icon">📧</span>
-          <div>
-            <span class="form-detail-label">Email</span>
-            <p class="form-detail-text"><a href="mailto:Redrooffarmhouseretreats@gmail.com" style="color:var(--red);text-decoration:none;">Redrooffarmhouseretreats@gmail.com</a></p>
-          </div>
-        </div>
-        <div class="form-detail">
-          <span class="form-detail-icon">📅</span>
-          <div>
-            <span class="form-detail-label">Availability</span>
-            <p class="form-detail-text">Limited 2026 dates remaining. 2027 bookings now open.</p>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <form id="inquiryForm" action="https://formspree.io/f/xvzlnoar" method="POST">
-          <input type="hidden" name="_subject" value="New Wedding Inquiry from Red Roof Farmhouse Website">
-          <p class="form-title">Wedding Inquiry</p>
-          <p class="form-subtitle">Tell us about your day and we'll get back to you within 24 hours.</p>
-          <div class="form-row">
-            <div class="field">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="Jane & John" required>
-            </div>
-            <div class="field">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="you@email.com" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="field">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="208-000-0000">
-            </div>
-            <div class="field">
-              <label for="date">Wedding Date</label>
-              <input type="date" id="date" name="wedding_date">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="field">
-              <label for="guests">Guest Count</label>
-              <select id="guests" name="guest_count">
-                <option value="">Select range</option>
-                <option>Under 20</option>
-                <option>20 to 35</option>
-                <option>35 to 50</option>
-                <option>50 or more</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="overnight">Overnight Guests?</label>
-              <select id="overnight" name="overnight_guests">
-                <option value="">Select one</option>
-                <option>Yes, we want accommodations</option>
-                <option>Ceremony & reception only</option>
-                <option>Not sure yet</option>
-              </select>
-            </div>
-          </div>
-          <div class="field">
-            <label for="message">Tell Us About Your Vision</label>
-            <textarea id="message" name="message" placeholder="Share any details about your wedding day, vision, or questions you have for JoJo..."></textarea>
-          </div>
-          <button type="submit" class="submit-btn" id="submitBtn">Send My Inquiry</button>
-          <p class="form-note">We respond to all inquiries within 24 hours. Your information is never shared.</p>
-        </form>
-        <div class="form-success" id="formSuccess">
-          <span class="form-success-icon">🌿</span>
-          <h3>Thank You!</h3>
-          <p>JoJo will be in touch within 24 hours to talk about your day. We can't wait to hear more.</p>
-        </div>
-      </div>
+<!-- CTA -->
+<section class="cta-band" id="inquire">
+  <div class="container" style="max-width:700px;">
+    <p class="section-label" style="color:rgba(255,255,255,0.6);">Ready to Book</p>
+    <h2 style="color:#fff;">Your People Deserve <em style="color:var(--tan-light);">This Place</em></h2>
+    <p style="color:rgba(255,255,255,0.8); max-width:none; text-align:center;">Whether you're planning a wedding, a retreat, a reunion, or just a long weekend away, JoJo would love to hear from you.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:2rem;">
+      <a href="gatherings.html#inquiry" class="btn-white">Plan Your Gathering</a>
+      <a href="mailto:Redrooffarmhouseretreats@gmail.com" style="display:inline-block; background:transparent; color:#fff; padding:1rem 2.5rem; font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; font-weight:400; border:2px solid rgba(255,255,255,0.5); transition:all 0.25s;">Get in Touch</a>
     </div>
+    <p style="margin-top:2rem; font-size:0.88rem; color:rgba(255,255,255,0.6); text-align:center; max-width:none;">
+      <a href="tel:2088707832" style="color:var(--tan-light);">208-870-7832</a> &nbsp;·&nbsp;
+      <a href="mailto:Redrooffarmhouseretreats@gmail.com" style="color:var(--tan-light);">Redrooffarmhouseretreats@gmail.com</a>
+    </p>
   </div>
 </section>
 
 <footer>
   <span class="footer-logo">Red Roof Farmhouse</span>
   <div class="footer-links">
-    <a href="https://redrooffarmhouse.com/">Home</a>
-    <a href="https://redrooffarmhouse.com/">Properties</a>
-    <a href="https://facebook.com/redrooffarmhouseretreats">Facebook</a>
-    <a href="https://instagram.com/redrooffarmhouse">Instagram</a>
+    <a href="index.html">Home</a>
+    <a href="properties.html">Properties</a>
+    <a href="gatherings.html">Gatherings</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
   </div>
-  <p>Nampa, Idaho</p>
+  <p>1921 · Nampa, Idaho</p>
   <p><a href="tel:2088707832">208-870-7832</a> &nbsp;·&nbsp; <a href="mailto:Redrooffarmhouseretreats@gmail.com">Redrooffarmhouseretreats@gmail.com</a></p>
-  <p style="margin-top:1.5rem;font-size:0.7rem;opacity:0.35;">Video by Howard Media · howard.media</p>
+  <p style="margin-top:1.5rem; font-size:0.68rem; opacity:0.3;">Website by Howard Media · howard.media</p>
 </footer>
 
 <script>
-  const form = document.getElementById('inquiryForm');
-  const btn = document.getElementById('submitBtn');
-  const success = document.getElementById('formSuccess');
-
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-      if (response.ok) {
-        form.style.display = 'none';
-        success.style.display = 'block';
-      } else {
-        btn.disabled = false;
-        btn.textContent = 'Send My Inquiry';
-        alert('Something went wrong. Please email JoJo directly at Redrooffarmhouseretreats@gmail.com');
-      }
-    } catch(err) {
-      btn.disabled = false;
-      btn.textContent = 'Send My Inquiry';
-      alert('Something went wrong. Please email JoJo directly at Redrooffarmhouseretreats@gmail.com');
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    });
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
     }
   });
 </script>
+
 </body>
 </html>

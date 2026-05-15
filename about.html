@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Red Roof Farmhouse</title>
+<meta name="description" content="The story of Red Roof Farmhouse in Nampa, Idaho. A 100-year-old property restored with love, filled with family heirlooms, and open to the gatherings that matter most.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF6EF;
+    --warm-white: #FDF9F4;
+    --red: #8B2020;
+    --red-light: #A83030;
+    --brown: #4A3728;
+    --tan: #C4A882;
+    --tan-light: #E8D9C4;
+    --text: #2C1F14;
+    --muted: #7A6A5A;
+    --border: #DDD0BC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--cream); color: var(--text); font-family: 'Jost', sans-serif; font-weight: 300; line-height: 1.7; }
+
+  /* NAV */
+  nav { background: var(--warm-white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--red); font-weight: 700; letter-spacing: 0.05em; text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brown); text-decoration: none; font-weight: 400; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--red); }
+  .nav-book { background: var(--red); color: #fff; padding: 0.5rem 1.2rem; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; font-weight: 400; transition: background 0.2s; }
+  .nav-book:hover { background: var(--red-light); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--brown); transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 57px; left: 0; right: 0; background: var(--warm-white); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; z-index: 99; flex-direction: column; gap: 0; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brown); text-decoration: none; font-weight: 400; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--red); }
+  .mobile-menu .mobile-book { background: var(--red); color: #fff; padding: 0.9rem 1.5rem; text-align: center; margin-top: 1rem; border-bottom: none; }
+
+  /* HERO */
+  .hero { position: relative; height: 60vh; min-height: 400px; overflow: hidden; }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(44,31,20,0.2) 0%, rgba(44,31,20,0.7) 100%); }
+  .hero-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
+  .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--tan-light); margin-bottom: 1rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 400; color: #fff; line-height: 1.1; margin-bottom: 0.8rem; }
+  .hero h1 em { font-style: italic; color: var(--tan-light); }
+  .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.8); max-width: 460px; margin: 0 auto; font-weight: 300; }
+
+  /* SECTIONS */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; font-weight: 400; }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.15; color: var(--brown); margin-bottom: 1.5rem; }
+  h2 em { font-style: italic; color: var(--red); }
+  p { color: var(--muted); font-size: 0.97rem; margin-bottom: 1.2rem; max-width: 620px; }
+  .divider { width: 60px; height: 2px; background: var(--tan); margin: 1.5rem 0; }
+
+  /* MEET THE HOSTS */
+  .hosts { background: var(--warm-white); }
+  .hosts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .hosts-img-stack { position: relative; }
+  .hosts-img-main { width: 100%; height: 520px; object-fit: cover; display: block; }
+  .hosts-img-second { position: absolute; bottom: -2rem; right: -2rem; width: 55%; height: 220px; object-fit: cover; border: 5px solid var(--warm-white); display: block; }
+  .quote-block { margin: 2rem 0; padding: 1.5rem 2rem; border-left: 3px solid var(--tan); background: var(--cream); }
+  .quote-block p { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; color: var(--brown); margin: 0; max-width: none; line-height: 1.6; }
+  .quote-attr { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-top: 0.8rem; display: block; }
+
+  /* VIDEO */
+  .video-section { background: var(--brown); padding: 5rem 2rem; }
+  .video-section h2 { color: var(--tan-light); }
+  .video-section p { color: rgba(255,255,255,0.6); }
+  .video-section .section-label { color: var(--tan); }
+  .video-section .divider { background: var(--tan); }
+  .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-top: 2.5rem; }
+  .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+  /* HEIRLOOMS */
+  .heirlooms { background: var(--cream); }
+  .heirlooms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .heirlooms-img { width: 100%; height: 460px; object-fit: cover; display: block; }
+  .heirloom-list { list-style: none; margin: 1.5rem 0; }
+  .heirloom-list li { font-size: 0.92rem; color: var(--muted); padding: 0.8rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.8rem; }
+  .heirloom-list li:last-child { border-bottom: none; }
+  .heirloom-list li::before { content: ''; width: 6px; height: 6px; background: var(--tan); border-radius: 50%; flex-shrink: 0; }
+
+  /* PHILOSOPHY */
+  .philosophy { background: var(--brown); padding: 6rem 2rem; }
+  .philosophy h2 { color: var(--tan-light); }
+  .philosophy .section-label { color: var(--tan); }
+  .philosophy .divider { background: var(--tan); }
+  .philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 3rem; background: rgba(255,255,255,0.08); }
+  .phil-item { background: rgba(255,255,255,0.03); padding: 2.5rem 2rem; }
+  .phil-icon { font-size: 2rem; display: block; margin-bottom: 1rem; }
+  .phil-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--tan-light); margin-bottom: 0.8rem; }
+  .phil-desc { font-size: 0.88rem; color: rgba(255,255,255,0.45); margin: 0; max-width: none; line-height: 1.6; }
+
+  /* TESTIMONIAL */
+  .testimonial-band { background: var(--tan-light); padding: 5rem 2rem; }
+  .testi-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+  .testi-quote { font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--tan); line-height: 0.5; display: block; margin-bottom: 2rem; }
+  .testi-text { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--brown); line-height: 1.6; margin-bottom: 1.5rem; max-width: none; }
+  .testi-author { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); }
+
+  /* CTA */
+  .cta-band { background: var(--red); padding: 5rem 2rem; text-align: center; }
+  .cta-band h2 { color: #fff; margin-bottom: 1rem; }
+  .cta-band p { color: rgba(255,255,255,0.8); margin: 0 auto 2rem; text-align: center; }
+  .btn-white { display: inline-block; background: #fff; color: var(--red); padding: 1rem 2.5rem; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; font-weight: 500; border: 2px solid #fff; transition: all 0.25s; }
+  .btn-white:hover { background: transparent; color: #fff; }
+
+  /* FOOTER */
+  footer { background: var(--brown); padding: 4rem 2rem; text-align: center; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--tan-light); display: block; margin-bottom: 0.5rem; }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--tan); }
+  footer p { color: rgba(255,255,255,0.4); font-size: 0.82rem; max-width: none; margin: 0.3rem 0; text-align: center; }
+  footer a { color: var(--tan); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hosts-grid, .heirlooms-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hosts-img-second { display: none; }
+    .philosophy-grid { grid-template-columns: 1fr; }
+    nav { padding: 1rem; }
+    .nav-links { display: none; }
+    .nav-book { display: none; }
+    .hamburger { display: flex; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Red Roof Farmhouse</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="properties.html">Properties</a></li>
+    <li><a href="gatherings.html">Gatherings</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+  </ul>
+  <a href="gatherings.html#inquiry" class="nav-book">Plan Your Stay</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="properties.html">Properties</a>
+  <a href="gatherings.html">Gatherings</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="about.html">About</a>
+  <a href="gatherings.html#inquiry" class="mobile-book">Plan Your Stay</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <img class="hero-img" src="https://assets.hospitable.com/property_images/1890828/cTND417S04vV4E8TL16DClsXULw1k50GQCPnAnZN.jpg" alt="Red Roof Farmhouse Nampa Idaho">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Nampa, Idaho · Est. 1921</p>
+    <h1>A Place With<br><em>100 Years</em> of Stories</h1>
+    <p class="hero-sub">Red Roof Farmhouse has been welcoming people to Idaho farmland since 1921. Here is its story.</p>
+  </div>
+</div>
+
+<!-- THE PROPERTY STORY -->
+<section class="hosts">
+  <div class="container">
+    <div class="hosts-grid">
+      <div class="hosts-img-stack">
+        <img class="hosts-img-main" src="https://assets.hospitable.com/property_images/1890828/OMtrgT5Yh3PvHJwwwu8q9yuo93wcAkxlwmULnnIj.jpg" alt="Red Roof Farmhouse property">
+        <img class="hosts-img-second" src="https://assets.hospitable.com/property_images/1890828/QsdFjo4XzF0T6BC0WPhaIIEC6CRnNRPN9uP45qCE.jpg" alt="Red Roof Farmhouse grounds">
+      </div>
+      <div>
+        <p class="section-label">The Property</p>
+        <h2>100 Years of <em>Idaho Farmland</em></h2>
+        <div class="divider"></div>
+        <p>What started as a working Idaho farmhouse in 1921 has grown into something far more than anyone could have planned. Over the past century, this land has been home to harvests, families, celebrations, and quiet evenings under open Idaho skies.</p>
+        <p>Today, Red Roof Farmhouse has been lovingly restored into three distinct lodging spaces, the Lodge, the Farmhouse, and the Village, each one designed to welcome a different size of gathering while preserving the soul of the original property.</p>
+        <p>The land hasn't changed. The views of Idaho farmland stretching to the horizon, the old-growth trees strung with lights, the gathering grounds where ceremonies take place, these have been here far longer than any renovation. We simply gave them a reason to keep welcoming people.</p>
+        <div class="quote-block">
+          <p>A place like this doesn't get built. It gets inherited, restored, and passed forward. That's what Red Roof Farmhouse is.</p>
+          <span class="quote-attr">Red Roof Farmhouse, Nampa Idaho</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTY TOUR VIDEO -->
+<section class="video-section">
+  <div class="container">
+    <p class="section-label">See It For Yourself</p>
+    <h2>A Tour of <em>Red Roof Farmhouse</em></h2>
+    <div class="divider"></div>
+    <p>Walk through all three spaces and the grounds before your visit. Every corner of this property has a story.</p>
+    <div class="video-wrapper">
+      <iframe
+        src="https://player.vimeo.com/video/1191946854?autoplay=0&loop=0&color=C4A882&title=0&byline=0&portrait=0"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- HEIRLOOMS -->
+<section class="heirlooms">
+  <div class="container">
+    <div class="heirlooms-grid">
+      <div>
+        <p class="section-label">100 Years of History</p>
+        <h2>The Heirlooms That <em>Live Here</em></h2>
+        <div class="divider"></div>
+        <p>Woven throughout all three spaces, you'll find family heirlooms we've collected over generations. Little pieces of history tucked into every corner. They aren't decor. They're memories that belong to this land, and now they belong to the experience of staying here.</p>
+        <p>Every guest notices something different. A piece of furniture, a photograph, a tool that belonged to someone who worked this same soil a century ago. That's the soul of Red Roof Farmhouse. You can't build it. You can only inherit it.</p>
+        <ul class="heirloom-list">
+          <li>Antique furniture restored and placed throughout the spaces</li>
+          <li>Vintage photographs and artwork from Idaho's early settlers</li>
+          <li>Hand-crafted pieces passed down through the family</li>
+          <li>Original farmhouse architectural details preserved throughout</li>
+          <li>Collected pieces from over a century of Idaho life</li>
+        </ul>
+      </div>
+      <img class="heirlooms-img" src="https://assets.hospitable.com/property_images/1890828/IsT46D8kvkjWrMr2IUgEjcKKSE0YxX6CSEZSQ6K3.jpg" alt="Family heirlooms at Red Roof Farmhouse">
+    </div>
+  </div>
+</section>
+
+<!-- HOSTING PHILOSOPHY -->
+<section class="philosophy">
+  <div class="container">
+    <p class="section-label">How We Host</p>
+    <h2>What We <em>Believe</em></h2>
+    <div class="divider"></div>
+    <div class="philosophy-grid">
+      <div class="phil-item">
+        <span class="phil-icon">🏡</span>
+        <div class="phil-title">Present, Not Intrusive</div>
+        <p class="phil-desc">We live on the property and we're always available. But we know the difference between being a good host and being underfoot. When you settle in, we step back.</p>
+      </div>
+      <div class="phil-item">
+        <span class="phil-icon">❤️</span>
+        <div class="phil-title">Every Stay Is Personal</div>
+        <p class="phil-desc">We respond to every inquiry personally. We learn about your group before you arrive. And we genuinely care about your experience long after you've checked out.</p>
+      </div>
+      <div class="phil-item">
+        <span class="phil-icon">🌿</span>
+        <div class="phil-title">The Land Comes First</div>
+        <p class="phil-desc">This property has been here for 100 years and will be here for 100 more. We take care of it like it belongs to the future, because it does.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial-band">
+  <div class="container">
+    <div class="testi-inner">
+      <span class="testi-quote">"</span>
+      <p class="testi-text">This place was fantastic. JoJo and Jeff were terrific hosts. 10 out of 10 would stay again. Every night we were in the back yard enjoying the sunset, resting in the adirondack chairs, or in the hot tub.</p>
+      <p class="testi-author">Victoria · July 2025 · Family Reunion Stay</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="container" style="max-width:700px;">
+    <p class="section-label" style="color:rgba(255,255,255,0.6);">Come Stay With Us</p>
+    <h2 style="color:#fff;">We'd Love to <em style="color:var(--tan-light);">Have You</em></h2>
+    <p style="max-width:none; text-align:center;">Whether you're planning a wedding weekend, a family reunion, a corporate retreat, or just a long weekend away, reach out and let's talk about your stay.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:2rem;">
+      <a href="gatherings.html#inquiry" class="btn-white">Plan Your Stay</a>
+    </div>
+    <p style="margin-top:2rem; font-size:0.88rem; color:rgba(255,255,255,0.6); text-align:center; max-width:none;">
+      <a href="tel:2088707832" style="color:var(--tan-light);">208-870-7832</a> &nbsp;·&nbsp;
+      <a href="mailto:Redrooffarmhouseretreats@gmail.com" style="color:var(--tan-light);">Redrooffarmhouseretreats@gmail.com</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Red Roof Farmhouse</span>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="properties.html">Properties</a>
+    <a href="gatherings.html">Gatherings</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+  </div>
+  <p>Nampa, Idaho · Est. 1921</p>
+  <p><a href="tel:2088707832">208-870-7832</a> &nbsp;·&nbsp; <a href="mailto:Redrooffarmhouseretreats@gmail.com">Redrooffarmhouseretreats@gmail.com</a></p>
+  <p style="margin-top:1.5rem; font-size:0.68rem; opacity:0.3;">Website by Howard Media · howard.media</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    });
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
